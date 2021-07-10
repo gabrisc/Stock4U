@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/textViewMensageOfAddEconomicOperation"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center"
+        android:text="SELECIONE A QUANTIDADE"
+        android:textColor="@color/DarkBlue"
+        android:textSize="20sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/seekBarQuantityForSale"
+        android:layout_width="0dp"
+        android:layout_height="40dp"
+        android:layout_marginTop="8dp"
+        android:outlineAmbientShadowColor="@color/DarkBlue"
+        android:outlineSpotShadowColor="@color/DarkBlue"
+        app:layout_constraintEnd_toEndOf="@+id/textViewCounter"
+        app:layout_constraintStart_toStartOf="@+id/textViewCounter"
+        app:layout_constraintTop_toBottomOf="@+id/textViewCounter" />
+
+    <TextView
+        android:id="@+id/textViewCounter"
+        android:layout_width="0dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="8dp"
+        android:fontFamily="sans-serif-black"
+        android:gravity="center"
+        android:text="0"
+        android:textColor="@color/DarkBlue"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/textViewMensageOfAddEconomicOperation"
+        app:layout_constraintStart_toStartOf="@+id/textViewMensageOfAddEconomicOperation"
+        app:layout_constraintTop_toBottomOf="@+id/textViewMensageOfAddEconomicOperation" />
+
+    <ImageButton
+        android:id="@+id/buttonDeleteDiscount"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginTop="24dp"
+        android:layout_marginEnd="24dp"
+        android:background="@drawable/negative_button_border"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarQuantityForSale"
+        app:srcCompat="@drawable/ic_baseline_clear_24" />
+
+    <ImageButton
+        android:id="@+id/buttonAddDiscount"
+        android:layout_width="48dp"
+        android:layout_height="48dp"
+        android:layout_marginStart="24dp"
+        android:layout_marginTop="24dp"
+        android:background="@drawable/positive_button_border"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/seekBarQuantityForSale"
+        app:srcCompat="@drawable/ic_baseline_check_24" />
+</androidx.constraintlayout.widget.ConstraintLayout>

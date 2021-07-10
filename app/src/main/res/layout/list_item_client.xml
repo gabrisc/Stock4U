@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <TextView
+        android:id="@+id/TextViewValueOfEconomicOperation"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center"
+        android:textColor="@color/IntermediateDMBlue"
+        android:textSize="24sp"
+        android:textStyle="bold" />
+
+    TextView
+    android:id="@+id/textView35"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:layout_weight="1"
+    android:gravity="center"
+    android:text="TextView"
+    android:textColor="#000000" />
+
+
+
+</LinearLayout>

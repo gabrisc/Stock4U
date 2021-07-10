@@ -1,0 +1,11 @@
+<resources>
+    <string name="app_name">Stock4U</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="title_activity_cruds_menus">MainActivity</string>
+    <string name="comercio">Comercio</string>
+    <string name="produtos">Produtos</string>
+    <string name="vendas">Vendas</string>
+    <string name="cliente">Client</string>
+    <string name="tab_text_3">Tab 2</string>
+</resources>

@@ -1,0 +1,108 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/gradient_backgroud"
+    tools:context=".login.signIn.SignInFragment">
+
+    <Button
+        android:id="@+id/button8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="40dp"
+        android:background="@drawable/without_border"
+        android:fontFamily="sans-serif-thin"
+        android:text="CANCELAR"
+        android:textColor="#CA2929"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="#FF0051"
+        app:layout_constraintEnd_toEndOf="@+id/button"
+        app:layout_constraintStart_toStartOf="@+id/button"
+        app:layout_constraintTop_toBottomOf="@+id/button" />
+
+    <TextView
+        android:id="@+id/textView43"
+        android:layout_width="411dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="16dp"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="center"
+        android:text="ESTOQUE  43"
+        android:textColor="#FFFFFF"
+        android:textSize="30sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
+    <Button
+        android:id="@+id/button"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/positive_button_border"
+        android:fontFamily="sans-serif-thin"
+        android:onClick="login"
+        android:text="logar"
+        android:textColorHint="#FFFFFF"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:backgroundTint="@color/Buttomcolor"
+        app:layout_constraintEnd_toEndOf="@+id/editPasswordSigIn"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/editPasswordSigIn"
+        app:layout_constraintTop_toBottomOf="@+id/editPasswordSigIn" />
+
+    <EditText
+        android:id="@+id/editPasswordSigIn"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="32dp"
+        android:background="@drawable/rounded_edit_text"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:gravity="left"
+        android:hint="Senha"
+        android:inputType="textPassword"
+        android:paddingLeft="10dp"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/editEmailSigIn"
+        app:layout_constraintStart_toStartOf="@+id/editEmailSigIn"
+        app:layout_constraintTop_toBottomOf="@+id/editEmailSigIn" />
+
+    <EditText
+        android:id="@+id/editEmailSigIn"
+        android:layout_width="363dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="60dp"
+        android:background="@drawable/rounded_edit_text"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:hapticFeedbackEnabled="false"
+        android:hint="E-mail"
+        android:inputType="textPersonName"
+        android:paddingLeft="10dp"
+        android:textColor="#FFFFFF"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textView43" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="178dp"
+        android:layout_height="178dp"
+        android:layout_marginTop="24dp"
+        android:src="@drawable/technology_branco"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>
