@@ -35,8 +35,8 @@
         android:hint="Nome"
         android:inputType="textPersonName"
         android:paddingLeft="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="@color/DarkBlue"
+        android:textColorHint="@color/DarkBlue"
         android:textSize="24sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="parent"
@@ -55,8 +55,8 @@
         android:hint="Email"
         android:inputType="textWebEmailAddress|textPersonName"
         android:paddingLeft="10dp"
-        android:textColor="#FFFFFF"
-        android:textColorHint="#FFFFFF"
+        android:textColor="@color/DarkBlue"
+        android:textColorHint="@color/DarkBlue"
         android:textSize="24sp"
         android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="@+id/editTextPhone"
@@ -69,14 +69,14 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
         android:fontFamily="sans-serif-light"
-        android:text="ATUALIZAR"
+        android:text="NOVO CLIENTE"
         android:textColor="@color/IntermediateDMBlue"
         android:textSize="30sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.011" />
 
     <EditText
         android:id="@+id/editTextPhone"
@@ -89,36 +89,37 @@
         android:hint="Telefone"
         android:inputType="phone"
         android:paddingLeft="10dp"
-        android:textColorHint="#FFFFFF"
+        android:textColor="@color/DarkBlue"
+        android:textColorHint="@color/DarkBlue"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="@+id/editTextClientName"
         app:layout_constraintStart_toStartOf="@+id/editTextClientName"
         app:layout_constraintTop_toBottomOf="@+id/editTextClientName" />
 
     <ImageButton
-        android:id="@+id/imageButton11"
+        android:id="@+id/imageButtonCancelAddClient"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/negative_button_border"
         android:onClick="cancelRegistrer"
-        android:tint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:srcCompat="@drawable/ic_baseline_clear_24" />
+        app:srcCompat="@drawable/ic_baseline_clear_24"
+        app:tint="@color/DarkBlue" />
 
     <ImageButton
-        android:id="@+id/imageButton12"
+        android:id="@+id/imageButtonAddClient"
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_marginStart="24dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/positive_button_border"
         android:onClick="ValidFields"
-        android:tint="#000000"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:srcCompat="@drawable/ic_baseline_check_24" />
+        app:srcCompat="@drawable/ic_baseline_check_24"
+        app:tint="@color/DarkBlue" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>

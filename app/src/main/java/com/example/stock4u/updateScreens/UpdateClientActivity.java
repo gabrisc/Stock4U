@@ -2,10 +2,13 @@ package com.example.stock4u.updateScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.media.Image;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -28,12 +31,12 @@ public class UpdateClientActivity extends AppCompatActivity {
 
         clientSelect = findClientSelected();
 
+        date = findViewById(R.id.TextViewDateClientUpdate);
+        name = findViewById(R.id.editTextClientNameUpdate);
+        email = findViewById(R.id.editTextEmailAddressUpdate);
+        phoneNumber = findViewById(R.id.editTextPhoneUpdate);
 
-        date = findViewById(R.id.TextViewDateClient);
-        name = findViewById(R.id.editTextClientName);
-        email = findViewById(R.id.editTextEmailAddress);
-        phoneNumber = findViewById(R.id.editTextPhone);
-
+        @SuppressLint("SimpleDateFormat")
         SimpleDateFormat simpleDateFormat =new SimpleDateFormat("dd/MM/yyyy");
 
         date.setText(simpleDateFormat.format(System.currentTimeMillis()));
@@ -41,8 +44,29 @@ public class UpdateClientActivity extends AppCompatActivity {
         email.setText(clientSelect.getEmail());
         phoneNumber.setText(clientSelect.getTelefone());
         date.setText(clientSelect.getDate());
-    }
 
+        ImageButton imageButtonUpdateClient = findViewById(R.id.imageButtonUpdateClient);
+        imageButtonUpdateClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validateFields();
+            }
+        });
+        ImageButton imageButtonCancelUpdateClient = findViewById(R.id.imageButtonCancelUpdateClient);
+        imageButtonCancelUpdateClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+
+            }
+        });
+        ImageButton imageButtonDeleteClient = findViewById(R.id.imageButtonDeleteClient);
+        imageButtonDeleteClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                deleteEconomicOperation();
+            }
+        });
+    }
 
     private Client findClientSelected() {
         Client client = new Client();
@@ -57,7 +81,7 @@ public class UpdateClientActivity extends AppCompatActivity {
         return client;
     }
 
-    public void validateFields(View v){
+    private void validateFields(){
         if (name.getText().toString().isEmpty()){
             Toast toast=Toast. makeText(getApplicationContext(),"Não deixe o nome vazio",Toast. LENGTH_SHORT);
             toast. show();
@@ -89,7 +113,7 @@ public class UpdateClientActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), ClientFragment.class));
     }
 
-    public void deleteEconomicOperation(View view){
+    private void deleteEconomicOperation(){
         clientSelect.delete();
         Toast toast=Toast. makeText(this,"Deletado",Toast. LENGTH_SHORT);
         toast.show();

@@ -2,15 +2,19 @@ package com.example.stock4u.addScreens;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageButton;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.example.stock4u.R;
+import com.example.stock4u.databinding.FragmentClientBinding;
 import com.example.stock4u.entities.Client;
+import com.example.stock4u.main.CrudsMenusActivity;
 import com.example.stock4u.main.ui.clients.ClientFragment;
 
 import java.text.SimpleDateFormat;
@@ -25,26 +29,39 @@ public class AddClientsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_clients);
         date = findViewById(R.id.TextViewDateClient);
 
-        SimpleDateFormat simpleDateFormat =new SimpleDateFormat("dd/MM/yyyy");
+        @SuppressLint("SimpleDateFormat") SimpleDateFormat simpleDateFormat =new SimpleDateFormat("dd/MM/yyyy");
         date.setText(simpleDateFormat.format(System.currentTimeMillis()));
+
+
+        ImageButton imageButtonAddClient = findViewById(R.id.imageButtonAddClient);
+        imageButtonAddClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                validFields();
+            }
+        });
+        ImageButton imageButtonCancelAddClient = findViewById(R.id.imageButtonCancelAddClient);
+
+        imageButtonCancelAddClient.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                startActivity(new Intent(getApplicationContext(), FragmentClientBinding.class));
+            }
+        });
     }
 
     public void cancelRegistrer (View view){
-        startActivity(new Intent(getApplicationContext(), ClientFragment.class));
+        startActivity(new Intent(getApplicationContext(), CrudsMenusActivity.class));
         this.finish();
     }
     public void listClients(){
-        startActivity(new Intent(getApplicationContext(), ClientFragment.class));
+        startActivity(new Intent(getApplicationContext(), CrudsMenusActivity.class));
     }
 
-    public void ValidFields(View view){
+    private void validFields(){
         EditText name = findViewById(R.id.editTextClientName);
         EditText email= findViewById(R.id.editTextEmailAddress);
         EditText telefone = findViewById(R.id.editTextPhone);
-
-
-
-
 
         if (name.getText().equals(null)){
             Toast toast=Toast. makeText(getApplicationContext(),"Entre com o nome",Toast. LENGTH_SHORT);
@@ -62,8 +79,9 @@ public class AddClientsActivity extends AppCompatActivity {
     }
 
     private void saveClient(Client client) {
-        Toast toast=Toast. makeText(getApplicationContext(),client.save(),Toast. LENGTH_SHORT);
+        client.save();
+        Toast toast=Toast. makeText(getApplicationContext(),"Cadastrado",Toast. LENGTH_SHORT);
         toast. show();
-        startActivity(new Intent(getApplicationContext(), ClientFragment.class));
+        startActivity(new Intent(getApplicationContext(), CrudsMenusActivity.class));
     }
 }

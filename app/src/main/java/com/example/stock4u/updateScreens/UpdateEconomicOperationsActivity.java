@@ -32,7 +32,6 @@ import static java.lang.Integer.parseInt;
 
 public class UpdateEconomicOperationsActivity extends AppCompatActivity {
 
-
     private EconomicOperation economicOperation;
     private TextView counter,titleOfQuantity;
     private EditText name,expense,seal;
@@ -80,7 +79,7 @@ public class UpdateEconomicOperationsActivity extends AppCompatActivity {
         cancelButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                validateFields();
+                startActivity(new Intent(getApplicationContext(),EconomicOperationsFragment.class));
             }
         });
     }
@@ -96,30 +95,17 @@ public class UpdateEconomicOperationsActivity extends AppCompatActivity {
 
         if(economicOperation.getType().equals(SERVIÇO.toString())){
             spinnerTypeOfQuantity.setVisibility(View.INVISIBLE);
+            titleOfQuantity.setVisibility(View.INVISIBLE);
             counter.setVisibility(View.INVISIBLE);
+            seekBar.setVisibility(View.INVISIBLE);
         }
     }
 
     private void setSpinners(){
         TypeOfQuantity[] listOfMed = {UND, CAIXAS, KG};
         ArrayAdapter adapter =new ArrayAdapter(getApplicationContext(),R.layout.item_list_spinner,listOfMed);
-
         spinnerTypeOfQuantity.setAdapter(adapter);
-
-        spinnerTypeOfQuantity.setOnItemSelectedListener(new AdapterView.OnItemSelectedListener() {
-            @Override
-            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                if (spinnerTypeOfQuantity.getSelectedItem().toString().equals(SERVIÇO.toString())) {
-                    seekBar.setVisibility(View.INVISIBLE);
-                }else{
-                    seekBar.setVisibility(View.VISIBLE);
-                }
-            }
-            @Override
-            public void onNothingSelected(AdapterView<?> parent) {}});
     }
-
-
 
     private void setSeekBar(Integer max,Integer min, Integer progress){
         seekBar.setMax(max);
@@ -175,7 +161,6 @@ public class UpdateEconomicOperationsActivity extends AppCompatActivity {
         }else{
             updateEconomicOperation();
         }
-
     }
 
     private void saveProduct(EconomicOperation economicOperation) {
@@ -191,8 +176,6 @@ public class UpdateEconomicOperationsActivity extends AppCompatActivity {
         if(economicOperation.getType().equals(TypeOfProduct.PRODUTO.toString())){
             economicOperation.setQuantity(Integer.parseInt(counter.getText().toString()));
         }
-
-        //economicOperation.setDate(date.getText().toString());
         economicOperation.setContributionValue(calcContributionValue(economicOperation.getSealValue(),economicOperation.getExpenseValue()));
 
         saveProduct(economicOperation);
@@ -200,16 +183,13 @@ public class UpdateEconomicOperationsActivity extends AppCompatActivity {
         startActivity(new Intent(getApplicationContext(), FragmentEconomicOperationBinding.class));
     }
 
-    public void deleteEconomicOperation(){
+    private void deleteEconomicOperation(){
         economicOperation.delete();
         Toast toast=Toast. makeText(getApplicationContext(),"Deletado",Toast. LENGTH_SHORT);
         toast.show();
-        //startActivity(new Intent(getApplicationContext(), EconomicOperationsFragment.class));
-        Bundle bundle = new Bundle();
-        bundle.putInt("some_int", 0);
-
-
+        this.finish();
     }
+
 
     private double calcContributionValue(double sellValue,double buyValue) {
         return sellValue-buyValue;
