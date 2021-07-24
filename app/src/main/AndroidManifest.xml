@@ -9,7 +9,13 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Stock4U">
-        <activity android:name=".updateScreens.UpdateEconomicOperationsActivity"></activity>
+        <activity android:name=".ecMeiHealth.ui.FluxoDeCaixa.CashRegisterFlowFragment"></activity>
+        <activity android:name=".main.ui.providers.ProvidersActivity" />
+        <activity
+            android:name=".ecMeiHealth.ui.EcMeiHealthMainActivity"
+            android:label="@string/title_activity_ec_mei_health" />
+        <activity android:name=".addScreens.ClosingSaleActivity" />
+        <activity android:name=".updateScreens.UpdateEconomicOperationsActivity" />
         <activity android:name=".updateScreens.UpdateClientActivity" />
         <activity android:name=".updateScreens.UpdateEcMeiActivity" />
         <activity android:name=".addScreens.AddEconomicOperationActivity" />

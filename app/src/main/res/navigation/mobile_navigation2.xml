@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/mobile_navigation2"
+    app:startDestination="@+id/total_investment_calculation_fragment">
+
+    <fragment
+        android:id="@+id/total_investment_calculation_fragment"
+        android:name="com.example.stock4u.ecMeiHealth.ui.CalculoDeInvestimentoTotal.TotalInvestmentCalculationFragment"
+        android:label="investimentos"
+        tools:layout="@layout/total_investment_calculation_fragment" />
+
+    <fragment
+        android:id="@+id/profitability_fragment"
+        android:name="com.example.stock4u.ecMeiHealth.ui.RentabilidadeLucratividade.ProfitabilityFragment"
+        android:label="Rent/Lucr"
+        tools:layout="@layout/profitability_fragment" />
+
+    <fragment
+        android:id="@+id/floating_capital_fragment"
+        android:name="com.example.stock4u.ecMeiHealth.ui.CapitalDeGiro.FloatingCapitalFragment"
+        android:label="Capital"
+        tools:layout="@layout/floating_capital_fragment" />
+
+    <fragment android:id="@+id/check_list_activity"
+        android:name="com.example.stock4u.ecMeiHealth.ui.CheckList.CheckListFragment2"
+        android:label="CheckList"
+        tools:layout="@layout/check_list_activity"
+        />
+
+    <fragment android:id="@+id/cash_register_flow_activity"
+        android:name="com.example.stock4u.ecMeiHealth.ui.FluxoDeCaixa.CashRegisterFlowFragment"
+        android:label="Caixa"
+        tools:layout="@layout/cash_register_flow_activity"
+        />
+
+</navigation>

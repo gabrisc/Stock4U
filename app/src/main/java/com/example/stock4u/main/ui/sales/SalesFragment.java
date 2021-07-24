@@ -15,6 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.example.stock4u.R;
 import com.example.stock4u.adapters.AdapterSales;
 import com.example.stock4u.addScreens.AddSealsActivity;
+
 import com.example.stock4u.databinding.FragmentSealsBinding;
 import com.example.stock4u.entities.Sale;
 import com.example.stock4u.login.firstScreen.PageViewModel;
@@ -31,21 +32,17 @@ public class SalesFragment extends Fragment implements AdapterSales.OnSaleLister
 
     private SalesViewModel salesViewModel;
     private FragmentSealsBinding binding;
-
-    private PageViewModel pageViewModel;
-    private static final String ARG_SECTION_NUMBER = "3";
     private AdapterSales adapterSales;
     private List<Sale> saleList = new ArrayList<>();
-    private Sale saleSelect;
-    private Intent intent;
     private RecyclerView recyclerView;
 
-    public View onCreateView(@NonNull LayoutInflater inflater,
-                             ViewGroup container, Bundle savedInstanceState) {
+    public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         salesViewModel = new ViewModelProvider(this).get(SalesViewModel.class);
-
         binding = FragmentSealsBinding.inflate(inflater, container, false);
+
         View root = binding.getRoot();
+
+        ImageButton addSalesButton = root.findViewById(R.id.AddSalesButton);
 
 
         recyclerView = root.findViewById(R.id.recyclerViewSale);
@@ -56,19 +53,17 @@ public class SalesFragment extends Fragment implements AdapterSales.OnSaleLister
 
         firebaseInstance.getReference()
                 .child(getIdUser())
-                .child("ProductsAndServices")
-                .child("PRODUCTS").addValueEventListener(new ValueEventListener() {
+                .child("Sales")
+                .addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
                 saleList.clear();
                 for (DataSnapshot ds: snapshot.getChildren()){
                     Sale saleTemp = ds.getValue(Sale.class);
                     saleList.add(saleTemp);
-
                 }
                 adapterSales.notifyDataSetChanged();
             }
-
             @Override
             public void onCancelled(@NonNull DatabaseError error) {
                 String x = String.valueOf(error);
@@ -76,15 +71,12 @@ public class SalesFragment extends Fragment implements AdapterSales.OnSaleLister
         });
         recyclerView.setAdapter(adapterSales);
 
-
-        ImageButton addSalesButton = root.findViewById(R.id.AddSalesButton);
         addSalesButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 startActivity(new Intent(getContext().getApplicationContext(), AddSealsActivity.class));
             }
         });
-
         return root;
     }
 

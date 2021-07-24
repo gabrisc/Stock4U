@@ -8,4 +8,7 @@
     <string name="vendas">Vendas</string>
     <string name="cliente">Client</string>
     <string name="tab_text_3">Tab 2</string>
+    <string name="title_activity_ec_mei_health">MainActivity</string>
+    <string name="Fornecedor">Fornecedor</string>
+    <string name="Provedor">Provedor</string>
 </resources>

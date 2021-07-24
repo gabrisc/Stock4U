@@ -37,8 +37,9 @@ public class AdapterSales extends RecyclerView.Adapter<AdapterSales.MyViewHolder
     public void onBindViewHolder(@NonNull MyViewHolder holder, int position) {
         Sale sale = saleList.get(position);
         holder.name.setText(sale.getClient().getNome().toUpperCase());
-        holder.totalValue.setText(sale.getTotalValue().toString());
+        holder.totalValue.setText(sale.getTotalValueFromProductsAndDiscount().toString());
         holder.gain.setText(sale.getGain().toString());
+        holder.paymentType.setText(sale.getPaymentType());
     }
 
     @Override
@@ -47,13 +48,14 @@ public class AdapterSales extends RecyclerView.Adapter<AdapterSales.MyViewHolder
     }
 
     public class MyViewHolder extends  RecyclerView.ViewHolder implements View.OnClickListener {
-        TextView name,gain,totalValue;
+        TextView name,gain,totalValue,paymentType;
         OnSaleListerner onSaleListerner;
         public MyViewHolder(@NonNull View itemView,OnSaleListerner onSaleListerner) {
             super(itemView);
             name = itemView.findViewById(R.id.textViewClientNameListSale);
             gain = itemView.findViewById(R.id.textViewLucroListSale);
             totalValue = itemView.findViewById(R.id.textViewTotalListSale);
+            paymentType = itemView.findViewById(R.id.textViewpaymentType);
             this.onSaleListerner = onSaleListerner;
             itemView.setOnClickListener(this);
         }

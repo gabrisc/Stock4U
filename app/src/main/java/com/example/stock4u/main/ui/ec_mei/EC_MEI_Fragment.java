@@ -7,43 +7,27 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
 import android.widget.TextView;
-
 import androidx.annotation.NonNull;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.ViewModelProvider;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
 import com.example.stock4u.R;
-import com.example.stock4u.adapters.AdapterEconomicOperation;
-import com.example.stock4u.addScreens.AddSealsActivity;
 import com.example.stock4u.databinding.FragmentEcMeiBinding;
+import com.example.stock4u.ecMeiHealth.ui.EcMeiHealthMainActivity;
 import com.example.stock4u.entities.Business;
 import com.example.stock4u.entities.EconomicOperation;
-import com.example.stock4u.login.firstScreen.PageViewModel;
-import com.example.stock4u.updateScreens.UpdateClientActivity;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.ValueEventListener;
-
 import java.util.ArrayList;
 import java.util.List;
-
 import static com.example.stock4u.util.FireBaseConfig.firebaseAuth;
 import static com.example.stock4u.util.FireBaseConfig.firebaseInstance;
-import static com.example.stock4u.util.FireBaseConfig.getIdUser;
-
 
 public class EC_MEI_Fragment extends Fragment {
 
     private EC_MEI_ViewModel ECMEIViewModel;
     private FragmentEcMeiBinding binding;
-    private PageViewModel pageViewModel;
-    private AdapterEconomicOperation adapterEconomicOperation;
     private List<EconomicOperation> economicOperationList = new ArrayList<>();
-    private Intent intent;
-    private RecyclerView recyclerView;
-    private int positionEconomicOperationSelect;
     private Business currentBusiness = new Business();
     private ImageButton imageButtonEdict,imageButtonShare;
     private TextView businessBranch,fantasyName,CNPJorCPF,adress,phoneNumber,email;
@@ -57,11 +41,9 @@ public class EC_MEI_Fragment extends Fragment {
         addEcMeiButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                //startActivity(new Intent(getContext().getApplicationContext(), AddSealsActivity.class));
-
+                startActivity(new Intent(getContext().getApplicationContext(), EcMeiHealthMainActivity.class));
             }
         });
-
 
         imageButtonEdict = root.findViewById(R.id.imageButtonEdit);
         imageButtonShare = root.findViewById(R.id.imageButtonShare);

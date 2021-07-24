@@ -20,4 +20,9 @@
         android:icon="@drawable/ic_baseline_people_alt_24"
         android:title="@string/vendas" />
 
+    <item   android:id="@+id/providers_activity"
+            android:icon="@drawable/ic_baseline_shopping_bag_24"
+            android:title="@string/Fornecedor"
+        />
+
 </menu>

@@ -7,6 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -59,6 +60,23 @@ public class AddSealsActivity extends AppCompatActivity implements AdapterEconom
         findAllClients();
         reloadRecyclerClient();
         buttonConclusionSelect.setVisibility(View.INVISIBLE);
+
+        ImageButton conclusionSale= findViewById(R.id.imageButtonConclusionSelect);
+        conclusionSale.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                fechandoVenda();
+            }
+        });
+
+    }
+
+    public void fechandoVenda(){
+        startActivity( new Intent(getApplicationContext(), ClosingSaleActivity.class));
+    }
+
+    public void CallAddClient(){
+       //startActivity(new Intent(getApplicationContext(),AddClientsActivity.class));
     }
 
     @Override
@@ -68,8 +86,6 @@ public class AddSealsActivity extends AppCompatActivity implements AdapterEconom
         economicOperationForSaleVoArrayList.clear();
         //clientSelected=null;
     }
-
-
 
     private void callDialogForProduct(EconomicOperation economicOperationSelect,int position,Boolean isService){
         View mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_select_item,null);
@@ -121,21 +137,23 @@ public class AddSealsActivity extends AppCompatActivity implements AdapterEconom
                 if (counter.getText().toString().equals("0")) {
                     Toast.makeText(AddSealsActivity.this, "Selecione uma quantidade", Toast.LENGTH_SHORT).show();
                 } else {
-                if (Integer.parseInt(counter.getText().toString()) == economicOperationSelect.getQuantity()) {
-                    addEconomicOperation(new EconomicOperationForSaleVo(economicOperationSelect, economicOperationSelect.getQuantity()));
-                    listProduct.remove(position);
-                    reloadRecyclerEconomicOperation();
-                    alertDialog.dismiss();
-                    buttonVisibilityEnable(true);
-                } else {
-                    int quantityResult = economicOperationSelect.getQuantity() - Integer.parseInt(counter.getText().toString());
-                    listProduct.get(position).setQuantity(quantityResult);
-                    addEconomicOperation(new EconomicOperationForSaleVo(economicOperationSelect, Integer.parseInt(counter.getText().toString())));
-                    reloadRecyclerEconomicOperation();
-                    alertDialog.dismiss();
-                    buttonVisibilityEnable(true);
+                    if(Integer.parseInt(counter.getText().toString()) == economicOperationSelect.getQuantity()) {
+                        addEconomicOperation(new EconomicOperationForSaleVo(economicOperationSelect, economicOperationSelect.getQuantity()));
+                        listProduct.remove(position);
+                        reloadRecyclerEconomicOperation();
+                        alertDialog.dismiss();
+                        buttonVisibilityEnable(true);
+                        buttonConclusionSelect.setVisibility(View.VISIBLE);
+                    } else {
+                        int quantityResult = economicOperationSelect.getQuantity() - Integer.parseInt(counter.getText().toString());
+                        listProduct.get(position).setQuantity(quantityResult);
+                        addEconomicOperation(new EconomicOperationForSaleVo(economicOperationSelect, Integer.parseInt(counter.getText().toString())));
+                        reloadRecyclerEconomicOperation();
+                        alertDialog.dismiss();
+                        buttonVisibilityEnable(true);
+                        buttonConclusionSelect.setVisibility(View.VISIBLE);
+                    }
                 }
-            }
             }
         });
 
@@ -155,21 +173,13 @@ public class AddSealsActivity extends AppCompatActivity implements AdapterEconom
             EconomicOperationForSaleVo e= it.next();
             if (e.getEconomicOperation().getId().equals(economicOperationForSaleVo.getEconomicOperation().getId())){
                 e.setQuantitySelect(economicOperationForSaleVo.getQuantitySelect() + e.getQuantitySelect());
-                //economicOperationForSaleVoArrayList.add(e);
+                economicOperationForSaleVoArrayList.add(e);
                 find=true;
             }
         }
         if(!find){
             economicOperationForSaleVoArrayList.add(economicOperationForSaleVo);
         }
-    }
-
-    public void fechandoVenda(View view){
-        //startActivity( new Intent(getApplicationContext(), ClosingSaleActivity.class));
-    }
-
-    public void CallAddClient(View view){
-        //startActivity(new Intent(getApplicationContext(),AddClientsActivity.class));
     }
 
 //#################################  VISIBILIDADE DOS BOTOES  ######################################
@@ -216,7 +226,6 @@ public class AddSealsActivity extends AppCompatActivity implements AdapterEconom
 
     @Override
     public void onEconomicOperationForSaleClick(int position) {
-        buttonConclusionSelect.setVisibility(View.VISIBLE);
         EconomicOperation economicOperationSelect = listProduct.get(position);
         if (economicOperationSelect.getType().equals(TypeOfProduct.PRODUTO.toString())){
             callDialogForProduct(economicOperationSelect,position,false);

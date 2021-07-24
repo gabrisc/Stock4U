@@ -28,4 +28,10 @@
         android:name="com.example.stock4u.main.ui.clients.ClientFragment"
         android:label="@string/cliente"
         tools:layout="@layout/fragment_client" />
+
+    <fragment
+        android:id="@+id/providers_activity"
+        android:name="com.example.stock4u.main.ui.providers.ProvidersFragment"
+        android:label="@string/Provedor"
+        tools:layout="@layout/providers_activity" />
 </navigation>

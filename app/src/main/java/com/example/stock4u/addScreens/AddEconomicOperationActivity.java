@@ -1,10 +1,13 @@
 package com.example.stock4u.addScreens;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputType;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -37,12 +40,14 @@ public class AddEconomicOperationActivity extends AppCompatActivity {
     private Spinner spinnerProductType,spinnerUnidadeDeMedida;
     private TextView editTextQuantidade;
     private SeekBar seekBar;
+    private AlertDialog alertDialog;
     private TextView titleQuantity;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_economic_operation);
+
         seekBar = findViewById(R.id.seekBarForQuantity);
         editTextQuantidade = findViewById(R.id.textViewQuantidade);
         spinnerProductType = findViewById(R.id.ProductType);
@@ -51,6 +56,7 @@ public class AddEconomicOperationActivity extends AppCompatActivity {
 
         ImageButton buttonCadastrarEO = findViewById(R.id.imageButtonConclusion);
         ImageButton buttonCancelarEO = findViewById(R.id.imageButtonCancel);
+        ImageButton ButtonHelpToCalc = findViewById(R.id.imageButtonHelpToCalc);
 
         updateSeekBar(10000,0,0);
         setSpinners();
@@ -67,6 +73,31 @@ public class AddEconomicOperationActivity extends AppCompatActivity {
                 cancelRegistrer();
             }
         });
+        ButtonHelpToCalc.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                setDialogCalcSellValue();
+            }
+        });
+
+
+    }
+    private void setDialogCalcSellValue(){
+        View mDialogView = LayoutInflater.from(this).inflate(R.layout.dialog_calc_sell_value,null);
+        ImageButton ButtonNotAcceptValue = mDialogView.findViewById(R.id.imageButtonNotAcceptValue);
+        ImageButton ButtonAcceptValue = mDialogView.findViewById(R.id.imageButtonAcceptValue);
+
+        EditText mostBiggerValue = mDialogView.findViewById(R.id.editTextMostBiggerValue);
+        EditText smallPriceFound = mDialogView.findViewById(R.id.editTextSmallPriceFound);
+        EditText mostCommomValue = mDialogView.findViewById(R.id.editTextMostCommomValue);
+
+        TextView sugestionValue = mDialogView.findViewById(R.id.textViewSugestionValue);
+
+        AlertDialog.Builder builder = new AlertDialog.Builder(this).setView(mDialogView).setTitle("DESCONTO");
+
+        alertDialog=builder.create();
+
+        alertDialog.show();
     }
 
     private void setSpinners(){

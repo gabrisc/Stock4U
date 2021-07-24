@@ -21,11 +21,9 @@
 
     <EditText
         android:id="@+id/editTextNameProduct"
-        android:layout_width="0dp"
+        android:layout_width="347dp"
         android:layout_height="wrap_content"
-        android:layout_marginStart="32dp"
-        android:layout_marginTop="52dp"
-        android:layout_marginEnd="32dp"
+        android:layout_marginTop="36dp"
         android:background="@drawable/rounded_edit_text"
         android:ems="10"
         android:fontFamily="sans-serif-thin"
@@ -41,98 +39,10 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/textViewTitleOfScreen" />
 
-    <EditText
-        android:id="@+id/editTextBuyValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_edit_text"
-        android:ems="10"
-        android:fontFamily="sans-serif-thin"
-        android:hapticFeedbackEnabled="false"
-        android:hint="Custo/Despesas"
-        android:inputType="numberDecimal"
-        android:paddingLeft="10dp"
-        android:textColor="@color/DarkBlue"
-        android:textColorHint="@color/DarkBlue"
-        android:textSize="24sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/editTextSellValue"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextSellValue"
-        app:layout_constraintTop_toBottomOf="@+id/editTextSellValue" />
-
-    <EditText
-        android:id="@+id/editTextSellValue"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="24dp"
-        android:background="@drawable/rounded_edit_text"
-        android:ems="10"
-        android:fontFamily="sans-serif-thin"
-        android:hapticFeedbackEnabled="false"
-        android:hint="Valor de venda"
-        android:inputType="numberDecimal"
-        android:paddingLeft="10dp"
-
-        android:textColor="@color/DarkBlue"
-        android:textColorHint="@color/DarkBlue"
-        android:textSize="24sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/editTextNameProduct"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextNameProduct"
-        app:layout_constraintTop_toBottomOf="@+id/editTextNameProduct" />
-
-    <Spinner
-        android:id="@+id/spinnerUnidadeDeMedida"
-        android:layout_width="0dp"
-        android:layout_height="0dp"
-        android:layout_marginStart="4dp"
-        android:background="@drawable/rounded_edit_text"
-        android:spinnerMode="dialog"
-        app:layout_constraintBottom_toBottomOf="@+id/textViewQuantidade"
-        app:layout_constraintEnd_toEndOf="@+id/textViewQuantidade2"
-        app:layout_constraintStart_toEndOf="@+id/textViewQuantidade"
-        app:layout_constraintTop_toTopOf="@+id/textViewQuantidade" />
-
-    <TextView
-        android:id="@+id/textViewQuantidade2"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="28dp"
-        android:fontFamily="sans-serif-light"
-        android:gravity="center"
-        android:hapticFeedbackEnabled="false"
-        android:text="QUANTIDADE"
-        android:textColor="@color/DarkBlue"
-        android:textColorHint="#FFFFFF"
-        android:textSize="24sp"
-        android:textStyle="normal"
-        app:layout_constraintEnd_toEndOf="@+id/editTextBuyValue"
-        app:layout_constraintHorizontal_bias="0.0"
-        app:layout_constraintStart_toStartOf="@+id/editTextBuyValue"
-        app:layout_constraintTop_toBottomOf="@+id/ProductType" />
-
-    <TextView
-        android:id="@+id/textViewQuantidade"
-        android:layout_width="99dp"
-        android:layout_height="32dp"
-        android:layout_marginTop="24dp"
-        android:background="#00FFFFFF"
-        android:gravity="center"
-        android:inputType="number"
-        android:text="0"
-        android:textColor="@color/DarkBlue"
-        android:textSize="24sp"
-        android:textStyle="bold"
-        app:layout_constraintStart_toStartOf="@+id/textViewQuantidade2"
-        app:layout_constraintTop_toBottomOf="@+id/textViewQuantidade2" />
-
     <ImageButton
         android:id="@+id/imageButtonConclusion"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginStart="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/positive_button_border"
@@ -143,8 +53,8 @@
 
     <ImageButton
         android:id="@+id/imageButtonCancel"
-        android:layout_width="48dp"
-        android:layout_height="48dp"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
         android:layout_marginEnd="16dp"
         android:layout_marginBottom="16dp"
         android:background="@drawable/negative_button_border"
@@ -156,21 +66,130 @@
 
     <SeekBar
         android:id="@+id/seekBarForQuantity"
-        android:layout_width="0dp"
+        android:layout_width="347dp"
         android:layout_height="35dp"
-        android:layout_marginTop="24dp"
+        android:layout_marginTop="20dp"
         app:layout_constraintEnd_toEndOf="@+id/spinnerUnidadeDeMedida"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="1.0"
         app:layout_constraintStart_toStartOf="@+id/textViewQuantidade"
         app:layout_constraintTop_toBottomOf="@+id/spinnerUnidadeDeMedida" />
 
-    <Spinner
-        android:id="@+id/ProductType"
-        android:layout_width="0dp"
-        android:layout_height="37dp"
+    <TextView
+        android:id="@+id/textViewQuantidade2"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="96dp"
+        android:fontFamily="sans-serif-light"
+        android:gravity="center"
+        android:hapticFeedbackEnabled="false"
+        android:text="QUANTIDADE"
+        android:textColor="@color/DarkBlue"
+        android:textColorHint="#FFFFFF"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/editTextSellValue"
+        app:layout_constraintStart_toStartOf="@+id/editTextSellValue"
+        app:layout_constraintTop_toBottomOf="@+id/editTextSellValue" />
+
+    <TextView
+        android:id="@+id/textViewQuantidade"
+        android:layout_width="99dp"
+        android:layout_height="32dp"
+        android:layout_marginTop="20dp"
+        android:background="#00FFFFFF"
+        android:gravity="center"
+        android:inputType="number"
+        android:text="0"
+        android:textColor="@color/DarkBlue"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        app:layout_constraintStart_toStartOf="@+id/textViewQuantidade2"
+        app:layout_constraintTop_toBottomOf="@+id/textViewQuantidade2" />
+
+    <EditText
+        android:id="@+id/editTextSellValue"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
         android:layout_marginTop="28dp"
         android:background="@drawable/rounded_edit_text"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:hapticFeedbackEnabled="false"
+
+        android:hint="Valor de venda"
+        android:inputType="numberDecimal"
+        android:paddingLeft="10dp"
+        android:textColor="@color/DarkBlue"
+        android:textColorHint="@color/DarkBlue"
+        android:textSize="24sp"
+        android:textStyle="normal"
         app:layout_constraintEnd_toEndOf="@+id/editTextBuyValue"
+        app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/editTextBuyValue"
         app:layout_constraintTop_toBottomOf="@+id/editTextBuyValue" />
+
+    <Spinner
+        android:id="@+id/ProductType"
+        android:layout_width="347dp"
+        android:layout_height="37dp"
+        android:layout_marginTop="19dp"
+        android:background="@drawable/rounded_edit_text"
+        app:layout_constraintEnd_toEndOf="@+id/editTextNameProduct"
+        app:layout_constraintStart_toStartOf="@+id/editTextNameProduct"
+        app:layout_constraintTop_toBottomOf="@+id/editTextNameProduct" />
+
+    <Spinner
+        android:id="@+id/spinnerUnidadeDeMedida"
+        android:layout_width="244dp"
+        android:layout_height="32dp"
+        android:background="@drawable/rounded_edit_text"
+        android:spinnerMode="dialog"
+        app:layout_constraintBottom_toBottomOf="@+id/textViewQuantidade"
+        app:layout_constraintEnd_toEndOf="@+id/textViewQuantidade2"
+        app:layout_constraintStart_toEndOf="@+id/textViewQuantidade"
+        app:layout_constraintTop_toTopOf="@+id/textViewQuantidade" />
+
+    <EditText
+        android:id="@+id/editTextBuyValue"
+        android:layout_width="347dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:background="@drawable/rounded_edit_text"
+        android:ems="10"
+        android:fontFamily="sans-serif-thin"
+        android:hapticFeedbackEnabled="false"
+        android:hint="Despesas"
+        android:inputType="numberDecimal"
+        android:paddingLeft="10dp"
+        android:textColor="@color/DarkBlue"
+        android:textColorHint="@color/DarkBlue"
+        android:textSize="24sp"
+        android:textStyle="normal"
+        app:layout_constraintEnd_toEndOf="@+id/ProductType"
+        app:layout_constraintStart_toStartOf="@+id/ProductType"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonHelpToCalc" />
+
+    <ImageButton
+        android:id="@+id/imageButtonHelpToCalc"
+        android:layout_width="50dp"
+        android:layout_height="50dp"
+        android:layout_marginTop="16dp"
+        android:background="@drawable/rounded_edit_text"
+        android:tint="@color/IntermediateDMBlue"
+        app:layout_constraintEnd_toEndOf="@+id/ProductType"
+        app:layout_constraintHorizontal_bias="0.498"
+        app:layout_constraintStart_toStartOf="@+id/ProductType"
+        app:layout_constraintTop_toBottomOf="@+id/ProductType"
+        app:srcCompat="@drawable/ic_baseline_calculate_24" />
+
+    <View
+        android:id="@+id/view4"
+        android:layout_width="0dp"
+        android:layout_height="0dp"
+        android:background="#FFFFFF"
+        app:layout_constraintBottom_toBottomOf="@+id/editTextSellValue"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageButtonHelpToCalc" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

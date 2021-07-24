@@ -9,8 +9,7 @@ public class EconomicOperationForSaleVo {
         this.quantitySelect = quantitySelect;
     }
 
-    public void calcTotalValue(){
-
+    public EconomicOperationForSaleVo() {
     }
 
     public EconomicOperation getEconomicOperation() {
